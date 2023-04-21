@@ -30,7 +30,7 @@ begin
 
 g: for k in 0 to numSeedTypes - 1 generate
 
-signal node_din: ldata( numLinksTB - 1 downto 0 ) := ( others => ( ( others => '0' ), '0', '0', '1' ) );
+signal node_din: ldata( numLinksTB - 1 downto 0 ) := ( others =>  nulll) ;
 signal node_dout: t_channelTB := nulll;
 
 begin
@@ -65,7 +65,7 @@ end;
 
 architecture rtl of kfin_isolation_in_node is
 
-signal track_din: lword := ( ( others => '0' ), '0', '0', '1' );
+signal track_din: lword := nulll;
 signal track_dout: t_trackTB := nulll;
 component kfin_isolation_in_track
 port (
@@ -96,7 +96,7 @@ c: kfin_isolation_in_track port map ( clk, track_din, track_dout );
 
 g: for k in 0 to numsProjectionLayers( seedType ) - 1 generate
 
-signal stub_din: lword := ( ( others => '0' ), '0', '0', '1' );
+signal stub_din: lword := nulll;
 signal stub_dout: t_stubTB := nulll;
 
 begin
@@ -128,7 +128,7 @@ end;
 architecture rtl of kfin_isolation_in_track is
 
 -- step 1
-signal din: lword := ( ( others => '0' ), '0', '0', '1' );
+signal din: lword := nulll;
 
 -- step 2
 signal dout: t_trackTB := nulll;
@@ -194,7 +194,7 @@ end;
 architecture rtl of kfin_isolation_in_stub is
 
 -- step 1
-signal din: lword := ( ( others => '0' ), '0', '0', '1' );
+signal din: lword := nulll;
 signal stubType: std_logic_vector( widthTBstubType - 1 downto 0 ) := ( others => '0' );
 
 -- step 2
@@ -293,7 +293,7 @@ end;
 
 architecture rtl of kfin_isolation_out is
 
-signal dout: ldata( 4 * N_REGION - 1 downto 0 ) := ( others => ( ( others => '0' ), '0', '0', '1' ) );
+signal dout: ldata( 4 * N_REGION - 1 downto 0 ) := ( others => nulll);
 component kfin_isolation_out_node
 port (
   clk: in std_logic;
@@ -311,7 +311,7 @@ node: for k in 0 to numSeedTypes - 1 generate
 
 signal node_packet: std_logic_vector( numLayers + 1 - 1 downto 0 ) := ( others => '0' );
 signal node_din: t_channelZHT := nulll;
-signal node_dout: ldata( numLayers + 1 - 1 downto 0 ) := ( others => ( ( others => '0' ), '0', '0', '1' ) );
+signal node_dout: ldata( numLayers + 1 - 1 downto 0 ) := ( others => nulll);
 
 begin
 
@@ -346,7 +346,7 @@ architecture rtl of kfin_isolation_out_node is
 
 signal track_packet: std_logic := '0';
 signal track_din: t_trackZHT := nulll;
-signal track_dout: lword := ( ( others => '0' ), '0', '0', '1' );
+signal track_dout: lword := nulll;
 component kfin_isolation_out_track
 port (
   clk: in std_logic;
@@ -377,7 +377,7 @@ g: for k in 0 to numLayers - 1 generate
 
 signal stub_packet: std_logic := '0';
 signal stub_din: t_stubZHT := nulll;
-signal stub_dout: lword := ( ( others => '0' ), '0', '0', '1' );
+signal stub_dout: lword := nulll;
 
 begin
 
@@ -419,7 +419,7 @@ signal sr: std_logic_vector( PAYLOAD_LATENCY - 1 downto 0 ) := ( others => '0' )
 
 -- step 1
 signal din:  t_trackZHT := nulll;
-signal dout: lword := ( ( others => '0' ), '0', '0', '1' );
+signal dout: lword := nulll;
 
 function conv( s: t_trackZHT ) return std_logic_vector is
 begin
@@ -483,7 +483,7 @@ signal sr: std_logic_vector( PAYLOAD_LATENCY - 1 downto 0 ) := ( others => '0' )
 
 -- step 1
 signal din:  t_stubZHT := nulll;
-signal dout: lword := ( ( others => '0' ), '0', '0', '1' );
+signal dout: lword := nulll;
 
 function conv( s: t_stubZHT ) return std_logic_vector is
 begin
