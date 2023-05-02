@@ -92,12 +92,12 @@ kfout_din <= in_dout;
 out_packet <=  conv(d);
 out_din <= kfout_dout;
 
-q(0) <= out_dout(0);
-q(1) <= out_dout(1);
-q(0).strobe <= '1';
-q(0).start  <= '0';
-q(1).strobe <= '1';
-q(1).start  <= '0';
+q(4) <= out_dout(0);
+q(5) <= out_dout(1);
+q(4).strobe <= '1';
+q(4).start  <= '0';
+q(5).strobe <= '1';
+q(5).start  <= '0';
 
 fin: kfout_isolation_in port map ( clk_p, in_din, in_dout );
 

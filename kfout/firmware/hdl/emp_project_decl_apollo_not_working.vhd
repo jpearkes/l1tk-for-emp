@@ -18,28 +18,28 @@ package emp_project_decl is
   constant CLOCK_AUX_DIV      : clock_divisor_array_t := (18, 9, 4); -- Dividers of CLOCK_COMMON_RATIO * 40 MHz
    
   -- Only used by nullalgo   
-  constant PAYLOAD_LATENCY : integer := 39;
+  constant PAYLOAD_LATENCY : integer := 5;
 
   constant REGION_CONF : region_conf_array_t := (
        0  => kDummyRegion, -- service
-       1  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       2  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       3  => (no_mgt, buf, no_fmt, buf, no_mgt),
+       1  => (gty25, buf, no_fmt, buf, gty25),
+       2  => (gty25, buf, no_fmt, buf, gty25),
+       3  => (gty25, buf, no_fmt, buf, gty25),
        4  => kDummyRegion, -- tcds
-       5  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       6  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       7  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       8  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       9  => (no_mgt, buf, no_fmt, buf, no_mgt),
+       5  => (gty25, buf, no_fmt, buf, gty25),
+       6  => (gty25, buf, no_fmt, buf, gty25),
+       7  => (gty25, buf, no_fmt, buf, gty25),
+       8  => (gty25, buf, no_fmt, buf, gty25),
+       9  => (gty25, buf, no_fmt, buf, gty25),
        ------cross
-       10  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       11  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       12  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       13  => (no_mgt, buf, no_fmt, buf, no_mgt),
+       10  => (gty25, buf, no_fmt, buf, gty25),
+       11  => (gty25, buf, no_fmt, buf, gty25),
+       12  => (gty25, buf, no_fmt, buf, gty25),
+       13  => (gty25, buf, no_fmt, buf, gty25),
        14 => kDummyRegion, -- not used in apollo
-       15  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       16  => (no_mgt, buf, no_fmt, buf, no_mgt),
-       17  => (no_mgt, buf, no_fmt, buf, no_mgt),
+       15  => (gty25, buf, no_fmt, buf, gty25),
+       16  => (gty25, buf, no_fmt, buf, gty25),
+       17  => (gty25, buf, no_fmt, buf, gty25),
        18 => kDummyRegion, -- service
     others => kDummyRegion
     );
