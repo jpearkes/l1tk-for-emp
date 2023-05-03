@@ -22,7 +22,7 @@ package emp_project_decl is
 
   constant REGION_CONF : region_conf_array_t := (
        0  => kDummyRegion, -- service
-       1  => (no_mgt, buf, no_fmt, buf, no_mgt),
+       1  => (no_mgt, buf, no_fmt, buf, gty25),
        2  => (no_mgt, buf, no_fmt, buf, no_mgt),
        3  => (no_mgt, buf, no_fmt, buf, no_mgt),
        4  => kDummyRegion, -- tcds
